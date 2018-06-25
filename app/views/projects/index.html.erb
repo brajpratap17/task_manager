@@ -1,0 +1,4 @@
+<% if current_user.admin? %>
+	<%= link_to "Create Project", new_project_path %>
+<% end %>
+<%= render partial: "projects" %>

@@ -1,0 +1,18 @@
+<div>
+	<span>Task Name:</span>
+	<span><%= f.text_field :name, required: true %></span>
+</div>
+<% if @project.developers.present? %>
+	<div>
+		<div>Assign Developers:</div>
+		<% @project.developers.each do |developer| %>
+			<div>
+					<!-- <input type=checkbox name="project[developer_ids][]" value="<%= developer.id %>"> -->
+				<%= radio_button_tag "task[user_id]", developer.id, @task.user_id == developer.id %>
+				<%= developer.name %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+<%= f.submit %>
+<%= link_to "cancel", project_tasks_path %>

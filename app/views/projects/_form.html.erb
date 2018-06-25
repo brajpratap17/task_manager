@@ -1,0 +1,20 @@
+<div>
+	<span>Project Name:</span>
+	<span><%= f.text_field :name, required: true %></span>
+</div>
+<div>
+	<div>Assign Developers:</div>
+	<% @developers.each do |developer| %>
+		<div>
+			<span>
+				<!-- <input type=checkbox name="project[developer_ids][]" value="<%= developer.id %>"> -->
+				<%= check_box_tag "project[developers][ids][]", developer.id, @project.developers.include?(developer) %>
+			</span>
+			<span>
+				<%= developer.name %>
+			</span>
+		</div>
+	<% end %>
+</div>
+<%= f.submit %>
+<%= link_to "cancel", projects_path %>

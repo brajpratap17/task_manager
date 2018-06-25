@@ -1,0 +1,13 @@
+<% if @projects.present? %>
+	<% @projects.each do |project| %>
+		<ul>
+			<li>
+				<%= project.name %>
+				<% if current_user.admin? %>
+					<%= link_to "Edit", edit_project_path(project.id) %>
+				<% end %>
+				<%= link_to "tasks", project_tasks_path(project.id) %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>

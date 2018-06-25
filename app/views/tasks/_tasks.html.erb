@@ -1,0 +1,10 @@
+<% if @tasks.present? %>
+	<% @tasks.each do |task| %>
+		<ul>
+			<li>
+				<%= task.name %>
+				<%= action_links(task) %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
